@@ -14,7 +14,7 @@ The Hacker News data scraper supports the following features:
 
 - Scrape listings of Ask HN - If you are specifically looking for "Ask HN" type of listing, you can target it.
 
-- Scrape listings of Show HN - If you are specifically looking for "Show HN" type of listing, you can target it. 
+- Scrape listings of Show HN - If you are specifically looking for "Show HN" type of listing, you can target it.
 
 - Scrape listing details - You can scrape a single listing.
 
@@ -22,7 +22,7 @@ The Hacker News data scraper supports the following features:
 
 
 ## Bugs, fixes, updates and changelog
-This scraper is under active development. If you have any feature requests you can create an issue from [here](https://github.com/tugkan/hackernews-scraper).
+This scraper is under active development. If you have any feature requests you can create an issue from [here](https://github.com/tugkan/hackernews-scraper/issues).
 
 ### Incoming Changes
 - Implement nesting on comment replies.
