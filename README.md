@@ -58,8 +58,8 @@ The actor optimized to run blazing fast and scrape many as listings as possible.
 ```json
 {
   "startUrls":[
-    { "url":"https://news.ycombinator.com/item?id=26501527"},
-    { "url":"https://news.ycombinator.com/front?day=2020-03-18"}
+    "https://news.ycombinator.com/item?id=26501527",
+    "https://news.ycombinator.com/front?day=2020-03-18"
   ],
   "mode": "FRONTPAGE",
   "proxy":{
