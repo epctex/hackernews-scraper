@@ -20,29 +20,47 @@ The Hacker News data scraper supports the following features:
 
 - Scrape job listings - You can scrape latest job listings that posted on Hacker News.
 
-
 ## Bugs, fixes, updates and changelog
+
 This scraper is under active development. If you have any feature requests you can create an issue from [here](https://github.com/tugkan/hackernews-scraper/issues).
 
 ### Incoming Changes
+
 - Implement nesting on comment replies.
 
+## Setup & Usage
+
+You can see how this actor works these videos:
+
+### Using Start URLs
+
+[![Apify - Hackernews Scraper - Start URLs](https://img.youtube.com/vi/gdVB6e-MAgU/0.jpg)](https://www.youtube.com/watch?v=gdVB6e-MAgU)
+
+You can see the output of this example run [here](https://api.apify.com/v2/datasets/0zLBMJHf1a2lXKBGT/items?clean=true&format=json).
+
+### Using Filters
+
+[![Apify - Hackernews Scraper - Using Mode](https://img.youtube.com/vi/7hO6l0gQUZc/0.jpg)](https://www.youtube.com/watch?v=7hO6l0gQUZc)
+
+You can see the output of this example run [here](https://api.apify.com/v2/datasets/lqVZdwz94nKkXB6xs/items?clean=true&format=json).
 
 ## Input Parameters
 
 The input of this scraper should be JSON containing the list of pages on Hacker News that should be visited. Required fields are:
 
-| Field | Type | Description |
-| ----- | ---- | ----------- |
-| startUrls | Array | (optional) List of Hacker News URLs. You should only provide news list, jobs list or detail URLs |
-| mode | String | (optional) Mode of the actor. Can be `FRONTPAGE`, `NEWEST`, `ASK`, `SHOW`, `JOBS` or `PAST`. |
-| endPage | Integer | (optional) Final number of page that you want to scrape. Default is `Infinite`. |
-| maxItems | Integer | (optional) You can limit scraped products. This should be useful when you search through the big subcategories.|
-| proxy | Object | Proxy configuration |
-| extendOutputFunction | String | (optional) Function that takes a JQuery handle ($) as argument and returns object with data |
-This solution requires the use of **Proxy servers**, either your own proxy servers or you can use <a href="https://www.apify.com/docs/proxy">Apify Proxy</a>.
+| Field                | Type    | Description                                                                                                                  |
+| -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| startUrls            | Array   | (optional) List of Hacker News URLs. You should only provide news list, jobs list or detail URLs                             |
+| maxItems             | Integer | (optional) You can limit scraped products. This should be useful when you search through the big subcategories.              |
+| endPage              | Integer | (optional) Final number of page that you want to scrape. Default is `Infinite`. This is applies to all request individually. |
+| mode                 | String  | (optional) Mode of the actor. Can be `FRONTPAGE`, `NEWEST`, `ASK`, `SHOW`, `JOBS` or `PAST`.                                 |
+| extendOutputFunction | String  | (optional) Function that takes a JQuery handle ($) as argument and returns object with data                                  |
+| proxy                | Object  | Proxy configuration                                                                                                          |
+
+This solution requires the use of **Proxy servers**, either your own proxy servers or you can use [Apify Proxy](https://www.apify.com/docs/proxy).
 
 ##### Tip
+
 When you want to have a scrape over a specific listing URL, just copy and paste the link as one of the **startUrl**.
 
 If you would like to scrape only the first page of a list then put the link for the page and have the `endPage` as 1.
@@ -52,24 +70,24 @@ With the last approach that explained above you can also fetch any interval of p
 If you would like to scrape historical data (ex: 2020-03-18) go to Hacker News, click on "Past" tab and find the URL that you are looking for. Then use the link as **startUrl**. Also; this is the format of historical data: `https://news.ycombinator.com/front?day=2020-03-18`
 
 ### Compute Unit Consumption
+
 The actor optimized to run blazing fast and scrape many as listings as possible. Therefore, it forefronts all listing detail requests. If actor doesn't block very often it'll scrape 100 listings in 1 minutes with ~0.03-0.04 compute units.
 
 ### Hacker News Scraper Input example
+
 ```json
 {
-  "startUrls":[
-    "https://news.ycombinator.com/item?id=26501527",
-    "https://news.ycombinator.com/front?day=2020-03-18"
-  ],
-  "mode": "FRONTPAGE",
-  "proxy":{
-    "useApifyProxy": true
-  },
-  "endPage":1,
-  "maxItems": 100
+    "startUrls": [
+        "https://news.ycombinator.com/item?id=26501527",
+        "https://news.ycombinator.com/front?day=2020-03-18"
+    ],
+    "mode": "FRONTPAGE",
+    "proxy": {
+        "useApifyProxy": true
+    },
+    "endPage": 1,
+    "maxItems": 100
 }
-
-
 ```
 
 ## During the Run
@@ -86,40 +104,41 @@ During the run, the actor stores results into a dataset. Each item is a separate
 You can manage the results in any languague (Python, PHP, Node JS/NPM). See the FAQ or <a href="https://www.apify.com/docs/api" target="blank">our API reference</a> to learn more about getting results from this Hacker News actor.
 
 ## Scraped Hacker News Properties
+
 The structure of each item in Hacker News listings looks like this:
 
-###Job Listings
+### Job Listings
 
 ```json
 {
-  "id": "26437893",
-  "title": "Substack (YC W18) is hiring to build a better business model for writing",
-  "link": "https://substack.com/jobs",
-  "age": "7 days ago",
-  "scrapedAt": "2021-03-19T21:56:00.085Z"
+    "id": "26437893",
+    "title": "Substack (YC W18) is hiring to build a better business model for writing",
+    "link": "https://substack.com/jobs",
+    "age": "7 days ago",
+    "scrapedAt": "2021-03-19T21:56:00.085Z"
 }
 ```
 
-###News Listings
+### News Listings
 
 ```json
 {
-  "id": "26501262",
-  "title": "Fancy Defines",
-  "link": "https://idiomdrottning.org/fancy-defines",
-  "points": 15,
-  "postedUserName": "todsacerdoti",
-  "postedUserLink": "https://news.ycombinator.com/user?id=todsacerdoti",
-  "numberOfComments": 1,
-  "comments": [
-    {
-      "userName": "nerdponx",
-      "userLink": "https://news.ycombinator.com/user?id=nerdponx",
-      "age": "2 hours ago",
-      "message": "Interesting, I didn't know about this at all. Is it that common in Scheme to write functions that immediately return other functions? Seems like an oddly \"blessed\" usage of syntax that IMO could be better used for something like pattern matching.Looking at this example from the linked SRFI [0]:    (define ((greet-with-prefix prefix) suffix)\n      (string-append prefix \" \" suffix))\n\n    (define greet (greet-with-prefix \"Hello\"))\n\n    (greet \"there!\") => \"Hello there!\"\n\nI'm not convinced that this is anything but an obfuscation, compared to the standard R5RS version:    (define (greet-with-prefix suffix)\n      (lambda (prefix)\n        (string-append prefix \" \" suffix)))\n\n    (define greet (greet-with-prefix \"Hello\"))\n\n    (greet \"there!\") => \"Hello there!\"\n\nWhat do the experienced Schemers think?[0]: https://srfi.schemers.org/srfi-219/srfi-219.html"
-    }
-  ],
-  "age": "4 hours ago",
-  "scrapedAt": "2021-03-19T21:37:45.462Z"
+    "id": "26501262",
+    "title": "Fancy Defines",
+    "link": "https://idiomdrottning.org/fancy-defines",
+    "points": 15,
+    "postedUserName": "todsacerdoti",
+    "postedUserLink": "https://news.ycombinator.com/user?id=todsacerdoti",
+    "numberOfComments": 1,
+    "comments": [
+        {
+            "userName": "nerdponx",
+            "userLink": "https://news.ycombinator.com/user?id=nerdponx",
+            "age": "2 hours ago",
+            "message": "Interesting, I didn't know about this at all. Is it that common in Scheme to write functions that immediately return other functions? Seems like an oddly \"blessed\" usage of syntax that IMO could be better used for something like pattern matching.Looking at this example from the linked SRFI [0]:    (define ((greet-with-prefix prefix) suffix)\n      (string-append prefix \" \" suffix))\n\n    (define greet (greet-with-prefix \"Hello\"))\n\n    (greet \"there!\") => \"Hello there!\"\n\nI'm not convinced that this is anything but an obfuscation, compared to the standard R5RS version:    (define (greet-with-prefix suffix)\n      (lambda (prefix)\n        (string-append prefix \" \" suffix)))\n\n    (define greet (greet-with-prefix \"Hello\"))\n\n    (greet \"there!\") => \"Hello there!\"\n\nWhat do the experienced Schemers think?[0]: https://srfi.schemers.org/srfi-219/srfi-219.html"
+        }
+    ],
+    "age": "4 hours ago",
+    "scrapedAt": "2021-03-19T21:37:45.462Z"
 }
 ```
