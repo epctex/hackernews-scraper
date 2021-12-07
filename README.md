@@ -6,19 +6,19 @@ Since Hacker News doesn't provide a good API, this actor should help you to retr
 
 The Hacker News data scraper supports the following features:
 
-- Scrape front page listing - You can scrape the homepage listings with any page you want.
+-   Scrape front page listing - You can scrape the homepage listings with any page you want.
 
-- Scrape newest listing - Latest news can be scraped right away from Hacker News.
+-   Scrape newest listing - Latest news can be scraped right away from Hacker News.
 
-- Scrape historical data - If you are looking for historical data, you can pick any date you want and scrape it over.
+-   Scrape historical data - If you are looking for historical data, you can pick any date you want and scrape it over.
 
-- Scrape listings of Ask HN - If you are specifically looking for "Ask HN" type of listing, you can target it.
+-   Scrape listings of Ask HN - If you are specifically looking for "Ask HN" type of listing, you can target it.
 
-- Scrape listings of Show HN - If you are specifically looking for "Show HN" type of listing, you can target it.
+-   Scrape listings of Show HN - If you are specifically looking for "Show HN" type of listing, you can target it.
 
-- Scrape listing details - You can scrape a single listing.
+-   Scrape listing details - You can scrape a single listing.
 
-- Scrape job listings - You can scrape latest job listings that posted on Hacker News.
+-   Scrape job listings - You can scrape latest job listings that posted on Hacker News.
 
 ## Bugs, fixes, updates and changelog
 
@@ -26,7 +26,7 @@ This scraper is under active development. If you have any feature requests you c
 
 ### Incoming Changes
 
-- Implement nesting on comment replies.
+-   Implement nesting on comment replies.
 
 ## Setup & Usage
 
@@ -34,13 +34,17 @@ You can see how this actor works these videos:
 
 ### Using Start URLs
 
-[![Apify - Hackernews Scraper - Start URLs](https://img.youtube.com/vi/gdVB6e-MAgU/0.jpg)](https://www.youtube.com/watch?v=gdVB6e-MAgU)
+Watch how to set up Start URLs for Hackernews Scraper [here](https://www.youtube.com/watch?v=PZ17RQiykNE).
+
+[![Apify - Hackernews Scraper - Start URLs](https://i.imgur.com/PWc4eXZ.png)](https://www.youtube.com/watch?v=PZ17RQiykNE)
 
 You can see the output of this example run [here](https://api.apify.com/v2/datasets/0zLBMJHf1a2lXKBGT/items?clean=true&format=json).
 
 ### Using Filters
 
-[![Apify - Hackernews Scraper - Using Mode](https://img.youtube.com/vi/7hO6l0gQUZc/0.jpg)](https://www.youtube.com/watch?v=7hO6l0gQUZc)
+Watch how to set up Mode for Hackernews Scraper [here](https://www.youtube.com/watch?v=PYColthcxa8).
+
+[![Apify - Hackernews Scraper - Using Mode](https://i.imgur.com/49pD2E6.png)](https://www.youtube.com/watch?v=PYColthcxa8)
 
 You can see the output of this example run [here](https://api.apify.com/v2/datasets/lqVZdwz94nKkXB6xs/items?clean=true&format=json).
 
