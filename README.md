@@ -22,7 +22,7 @@ The Hacker News data scraper supports the following features:
 
 ## Bugs, fixes, updates and changelog
 
-This scraper is under active development. If you have any feature requests you can create an issue from [here](https://github.com/tugkan/hackernews-scraper/issues).
+This scraper is under active development. If you have any feature requests you can create an issue from [here](https://github.com/epctex/hackernews-scraper/issues).
 
 ### Incoming Changes
 
@@ -82,8 +82,12 @@ The actor optimized to run blazing fast and scrape many as listings as possible.
 ```json
 {
     "startUrls": [
-        "https://news.ycombinator.com/item?id=26501527",
-        "https://news.ycombinator.com/front?day=2020-03-18"
+        {
+            "url": "https://news.ycombinator.com/item?id=26501527"
+        },
+        {
+            "url": "https://news.ycombinator.com/front?day=2020-03-18"
+        }
     ],
     "mode": "FRONTPAGE",
     "proxy": {
