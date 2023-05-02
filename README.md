@@ -28,42 +28,25 @@ This scraper is under active development. If you have any feature requests you c
 
 -   Implement nesting on comment replies.
 
-## Setup & Usage
-
-You can see how this actor works these videos:
-
-### Using Start URLs
-
-Watch how to set up Start URLs for Hackernews Scraper [here](https://www.youtube.com/watch?v=PZ17RQiykNE).
-
-[![Apify - Hackernews Scraper - Start URLs](https://i.imgur.com/PWc4eXZ.png)](https://www.youtube.com/watch?v=PZ17RQiykNE)
-
-You can see the output of this example run [here](https://api.apify.com/v2/datasets/0zLBMJHf1a2lXKBGT/items?clean=true&format=json).
-
-### Using Filters
-
-Watch how to set up Mode for Hackernews Scraper [here](https://www.youtube.com/watch?v=PYColthcxa8).
-
-[![Apify - Hackernews Scraper - Using Mode](https://i.imgur.com/49pD2E6.png)](https://www.youtube.com/watch?v=PYColthcxa8)
-
-You can see the output of this example run [here](https://api.apify.com/v2/datasets/lqVZdwz94nKkXB6xs/items?clean=true&format=json).
-
 ## Input Parameters
 
-The input of this scraper should be JSON containing the list of pages on Hacker News that should be visited. Required fields are:
+The input of this scraper should be JSON containing the list of pages on Hacker News that should be visited. Possible fields are:
 
-| Field                | Type    | Description                                                                                                                  |
-| -------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| startUrls            | Array   | (optional) List of Hacker News URLs. You should only provide news list, jobs list or detail URLs                             |
-| maxItems             | Integer | (optional) You can limit scraped products. This should be useful when you search through the big subcategories.              |
-| endPage              | Integer | (optional) Final number of page that you want to scrape. Default is `Infinite`. This is applies to all request individually. |
-| mode                 | String  | (optional) Mode of the actor. Can be `FRONTPAGE`, `NEWEST`, `ASK`, `SHOW`, `JOBS` or `PAST`.                                 |
-| extendOutputFunction | String  | (optional) Function that takes a JQuery handle ($) as argument and returns object with data                                  |
-| proxy                | Object  | Proxy configuration                                                                                                          |
+- `startUrls`: (Optional) (Array) List of Hacker News URLs. You should only provide news list, jobs list or detail URLs.
+
+- `mode`: (Optional) (String) Mode of the actor. Can be `FRONTPAGE`, `NEWEST`, `ASK`, `SHOW`, `JOBS` or `PAST`.
+
+- `endPage`: (Optional) (Number) Final number of page that you want to scrape. Default is `Infinite`. This is applies to all `search` request and `startUrls` individually.
+
+- `maxItems`: (Optional) (Number) You can limit scraped items. This should be useful when you search through the big lists or search results.
+
+- `proxy`: (Required) (Proxy Object) Proxy configuration.
+
+- `extendOutputFunction`: (Optional) (String) Function that takes a JQuery handle ($) as argument and returns object with data.
 
 This solution requires the use of **Proxy servers**, either your own proxy servers or you can use [Apify Proxy](https://www.apify.com/docs/proxy).
 
-##### Tip
+### Tip
 
 When you want to have a scrape over a specific listing URL, just copy and paste the link as one of the **startUrl**.
 
